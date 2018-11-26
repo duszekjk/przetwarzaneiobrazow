@@ -25,6 +25,9 @@
 /* Begin PBXFileReference section */
 		E0F4CFB921AC066500F51D51 /* Przetwarzanie Obrazow */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Przetwarzanie Obrazow"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F4CFBC21AC066500F51D51 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E0F4CFC321AC088700F51D51 /* cw2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cw2; sourceTree = "<group>"; };
+		E0F4CFC421AC088800F51D51 /* cw3 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = cw3; sourceTree = "<group>"; };
+		E0F4CFC521AC088800F51D51 /* cw4 C */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "cw4 C"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				E0F4CFBC21AC066500F51D51 /* main.swift */,
+				E0F4CFC321AC088700F51D51 /* cw2 */,
+				E0F4CFC421AC088800F51D51 /* cw3 */,
+				E0F4CFC521AC088800F51D51 /* cw4 C */,
 			);
 			path = "Przetwarzanie Obrazow";
 			sourceTree = "<group>";
