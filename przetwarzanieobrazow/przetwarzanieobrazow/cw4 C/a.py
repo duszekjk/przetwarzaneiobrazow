@@ -17,6 +17,7 @@ hisim = np.array([5*[13], 5*[133], 5*[244], 5*[12], 5*[56]]).astype(np.uint8)
 hisimb = np.array([5*[13], 5*[133], 5*[244], 5*[12], 5*[56], 5*[12], 5*[12], 5*[12], 5*[12], 5*[12]]).astype(np.uint8)
 #hisimc = np.array([5*[1], 3*[127], 5*[254]]).astype(np.uint8)
 hisimc = np.array([5*[13], 5*[133], 5*[244]]).astype(np.uint8)
+hisitest = np.array([5*[0], 5*[133], 5*[255]]).astype(np.uint8)
 
 def zadC1(image):
     hist, bins = np.histogram(image, density = True, bins = range(0,257))
@@ -50,19 +51,22 @@ def testC2():
 
 def zadC3(image):
     D = np.cumsum(image/255.0)
-    print(D)
+    D = D/np.max(D)
     D0 = D[D != 0][0]
-    N = ((D-D0)/(1.0-D0))
+    print("D0", D0, "is", image.size, "im", image, "imb", image/255.0)
+    print("d", D)
+    print(np.rint(image.astype(float)*D.size/255.0))
+    N = ((D[np.rint(image.astype(float)*D.size/255.0).astype(np.uint8)]-D0)/(1.0-D0))
     return np.rint(255.0*(N/np.max(N)))
 def testC3():
-    testset = np.array(256*[0]).astype(float)
-    #    print(testset)
-    testset[0] = 0.6
-    testset[1] = 0.1
-    testset[133] = 0.1
-    testset[255] = 0.1
-    testset[48] = 0.1
-    if np.array_equal(zadC1(zadC2(hisimb)), testset):
+    wynik = zadC3(hisimc)
+#    for l in range(0, 13):
+#        if(wynik[l] != hisitest[l]):
+#            print(wynik[l] + " != " + hisitest[l])
+    print("s"+str(hisimc)+"s\n")
+    print("w"+str(wynik)+"w\n")
+    print("t"+str(hisitest)+"t\n")
+    if np.array_equal(wynik, hisitest):
         return True
     else:
         return False
@@ -70,7 +74,7 @@ def testC3():
 #print(c)
 print(zadC3(hisimc))
 print(zadC1(zadC3(hisimc)))
-#print(testC2())
+print(testC3())
 #print(f)
 #print(testA4())
 # python3 checker.pyc a.py zadA2
